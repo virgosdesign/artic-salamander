@@ -2,6 +2,7 @@ import type { APIContext } from "astro";
 import { lucia } from "~/auth";
 
 export async function POST(context: APIContext): Promise<Response> {
+  console.log("LOGOUT API: ", context.locals.session)
 	if (!context.locals.session) {
 		return new Response(null, {
 			status: 401

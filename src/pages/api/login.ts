@@ -58,5 +58,5 @@ const existingUser = await db
 
   console.log("******************* cookies *******************", session);
   console.log("******************* session *******************", context.cookies.get(sessionCookie.name));
-	return context.redirect("/");
+	return context.redirect("/dashboard");
 }

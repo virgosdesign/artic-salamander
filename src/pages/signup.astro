@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import SignUp from '../components/static/SignUp.astro';
+
+const metadata = {
+  title: 'Sign up',
+};
+---
+
+<Layout metadata={metadata}>
+  <SignUp
+    title="Get started with Secure Athlete."
+    subtitle="Secure your your financial future with Secure Athlete."
+    inputs={[
+      {
+        type: 'text',
+        name: 'first_name',
+        label: 'First Name',
+      },
+      {
+        type: 'text',
+        name: 'last_name',
+        label: 'Last Name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+    ]}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    description="Our support team typically responds within 24 business hours."
+    button="Signup"
+  />
+</Layout>
+
