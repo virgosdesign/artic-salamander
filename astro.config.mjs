@@ -4,6 +4,7 @@ import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/uti
 
 import compress from 'astro-compress';
 import { fileURLToPath } from 'url';
+import htmx from 'astro-htmx';
 import icon from 'astro-icon';
 import mdx from '@astrojs/mdx';
 import netlify from '@astrojs/netlify';
@@ -28,6 +29,7 @@ export default defineConfig({
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'hybrid',
   integrations: [
+    htmx(),
     tailwind({
       applyBaseStyles: false,
     }),

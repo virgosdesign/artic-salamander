@@ -1,16 +1,30 @@
 ---
+import Layout from '../layouts/PageLayout.astro';
+import LoginPage from '../components/static/LoginPage.astro';
 
+const metadata = {
+  title: 'login',
+};
 ---
 
-<html lang="en">
-	<body>
-		<h1>Sign in</h1>
-		<form method="post" action="/api/login">
-			<label for="username">Username</label>
-			<input id="username" name="username" />
-			<label for="password">Password</label>
-			<input id="password" name="password" />
-			<button>Continue</button>
-		</form>
-	</body>
-</html>
+<Layout metadata={metadata}>
+  <LoginPage
+    action="/api/login"
+    title="Welcome to Secure Athlete!"
+    subtitle="Log in or sign up."
+    inputs={[
+      {
+        type: 'username',
+        name: 'username',
+        label: 'Username',
+      },
+      {
+        type: 'password',
+        name: 'password',
+        label: 'Password',
+      }
+    ]}
+    description="Sign in to your account."
+    button="Sign in"
+  />
+</Layout>

@@ -204,6 +204,7 @@ export interface Form {
   disclaimer?: Disclaimer;
   button?: string;
   description?: string;
+  action?: url;
 }
 
 // WIDGETS
@@ -282,3 +283,5 @@ export interface Content extends Headline, Widget {
 export interface Contact extends Headline, Form, Widget {}
 
 export interface Signup extends Headline, Form, Widget {}
+
+export interface Login extends Headline, Form, Widget {}

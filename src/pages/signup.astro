@@ -3,12 +3,13 @@ import Layout from '../layouts/PageLayout.astro';
 import SignUp from '../components/static/SignUp.astro';
 
 const metadata = {
-  title: 'Sign up',
+  title: 'signup',
 };
 ---
 
 <Layout metadata={metadata}>
   <SignUp
+    action="/api/signup"
     title="Get started with Secure Athlete."
     subtitle="Secure your your financial future with Secure Athlete."
     inputs={[
@@ -27,12 +28,22 @@ const metadata = {
         name: 'email',
         label: 'Email',
       },
+      {
+        type: 'password',
+        name: 'password',
+        label: 'Password',
+      },
+      {
+        type: 'password',
+        name: 'confirm_password',
+        label: 'Confirm Password',
+      },
     ]}
     disclaimer={{
       label:
         'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
     }}
-    description="Our support team typically responds within 24 business hours."
+    description="Begin your journey to financial freedom today."
     button="Signup"
   />
 </Layout>
