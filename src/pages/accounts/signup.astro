@@ -5,6 +5,8 @@ import SignUp from '../../components/static/SignUp.astro';
 const metadata = {
   title: 'signup',
 };
+
+const type = 'password';
 ---
 
 <Layout metadata={metadata}>
@@ -16,27 +18,22 @@ const metadata = {
       {
         type: 'text',
         name: 'first_name',
-        label: 'First Name',
+        placeholder: 'First Name',
       },
       {
         type: 'text',
         name: 'last_name',
-        label: 'Last Name',
+        placeholder: 'Last Name',
       },
       {
         type: 'email',
         name: 'email',
-        label: 'Email',
+        placeholder: 'Email',
       },
       {
-        type: 'password',
+        type: type,
         name: 'password',
-        label: 'Password',
-      },
-      {
-        type: 'password',
-        name: 'confirm_password',
-        label: 'Confirm Password',
+        placeholder: 'Password',
       },
     ]}
     disclaimer={{
