@@ -49,7 +49,7 @@ export async function POST(context: APIContext): Promise<Response> {
     hashed_password: hashedPassword,
   });
 
-  const session = await lucia.createSession(userId, {});
+  const session = await lucia.createSession(userId, {ip_country: 'US'});
   const sessionCookie = lucia.createSessionCookie(session.id);
   context.cookies.set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 
