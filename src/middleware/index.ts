@@ -14,16 +14,33 @@ export const onRequest = defineMiddleware(async (context, next) => {
     }
   }
 
-  if (context.url?.pathname === '/' || context.url?.pathname === '/accounts/login' || context.url?.pathname === '/accounts/signup' || context.url?.pathname === '/accounts/logout' || context.url?.pathname === '/api/login' || context.url?.pathname === '/api/signup' || context.url?.pathname === '/api/logout' || context.url?.pathname === '/api/user' || context.url?.pathname === '/api/session' || context.url?.pathname === '/api/refresh' || context.url?.pathname === '/api/verify') {
+  
+  const requestPath = context.url?.pathname;
+  console.log('GET REQUEST: ', context.url.pathname);
+
+  if (
+    requestPath === '/' ||
+    requestPath === '/_image' ||
+    requestPath === '/accounts/login' ||
+    requestPath === '/accounts/signup' ||
+    requestPath === '/accounts/logout' ||
+    requestPath === '/api/login' ||
+    requestPath === '/api/signup' ||
+    requestPath === '/api/logout' ||
+    requestPath === '/api/user' ||
+    requestPath === '/api/session' ||
+    requestPath === '/api/refresh' ||
+    requestPath === '/api/verify'
+  ) {
     return next();
   }
 
   const sessionId = context.cookies.get(lucia.sessionCookieName)?.value ?? null;
-  
+
   if (!sessionId) {
     context.locals.user = null;
     context.locals.session = null;
-    console.log("NO SESSION ID, WHAT SHOULD WE DO?")
+    console.log('NO SESSION ID, WHAT SHOULD WE DO?');
     //return next();
     return context.redirect('/accounts/login');
   }
@@ -31,11 +48,11 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const { session, user } = await lucia.validateSession(sessionId);
   if (session && session.fresh) {
     const sessionCookie = lucia.createSessionCookie(session.id);
-    console.log("SETTING SESSION COOKIE", sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+    console.log('SETTING SESSION COOKIE', sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
     context.cookies.set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
   }
   if (!session) {
-    console.log("NO SESSION")
+    console.log('NO SESSION');
     const sessionCookie = lucia.createBlankSessionCookie();
     context.cookies.set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
   }
