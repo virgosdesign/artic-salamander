@@ -10,6 +10,7 @@ import mdx from '@astrojs/mdx';
 import netlify from '@astrojs/netlify';
 import partytown from '@astrojs/partytown';
 import path from 'path';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import tasks from './src/utils/tasks';
@@ -71,6 +72,7 @@ export default defineConfig({
       Logger: 1,
     }),
     tasks(),
+    react(),
   ],
   image: {
     service: squooshImageService(),

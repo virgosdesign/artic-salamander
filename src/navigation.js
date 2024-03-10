@@ -115,7 +115,7 @@ export const headerData = {
       href: '#',
     },
   ],
-  actions: [{ text: 'Login', href: '/accounts/login'}],
+  actions: [{ text: 'Login', href: '/accounts/signup'}],
 };
 
 export const footerData = {

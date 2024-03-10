@@ -1,11 +1,15 @@
 ---
 import type { Form } from '~/types';
-import Button from '~/components/ui/Button.astro';
+//import Button from '~/components/ui/Button.astro';
+
+import { Button } from "~/components/@/components/ui/button"
+
 
 const { action, inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props as Form;
 ---
 
-<form method="post" action={action}>
+<!-- <form method="post" action={action}> -->
+<form method="post" hx-post={action}>
   {
     inputs &&
       inputs.map(
@@ -70,7 +74,7 @@ const { action, inputs, textarea, disclaimer, button = 'Contact us', description
   {
     button && (
       <div class="mt-10 grid">
-        <Button variant="primary" type="submit">{button}</Button>
+        <Button variant="secondary" type="submit">{button}</Button>
       </div>
     )
   }

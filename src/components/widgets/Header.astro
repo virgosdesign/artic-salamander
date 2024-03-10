@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import Logo from "~/components/Logo.astro";
+import Branding from "~/components/Brand.astro";
 import ToggleTheme from "~/components/common/ToggleTheme.astro";
 import ToggleMenu from "~/components/common/ToggleMenu.astro";
 import Button from "~/components/ui/Button.astro"
@@ -67,8 +67,8 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
     ]}
   >
     <div class:list={[{ "mr-auto rtl:mr-0 rtl:ml-auto": position === "right" }, "flex justify-between"]}>
-      <a class="flex items-center" href={getHomePermalink()}>
-        <Logo />
+      <a aria-label="brand" class="flex items-center" href={getHomePermalink()}>
+        <Branding />
       </a>
       <div class="flex items-center md:hidden">
         <ToggleMenu />

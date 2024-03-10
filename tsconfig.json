@@ -3,10 +3,13 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
-    "baseUrl": ".",
+    "baseUrl": "/Users/keithrobinson/Personal_Repos/secure-athlete_proper",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": [
+        "src/*"
+      ]
     },
-    // "module": "ESNext"
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

@@ -84,7 +84,7 @@ Inside **AstroWind** template, you'll see the following folders and files:
 │   │   │   └── ...
 │   │   ├── CustomStyles.astro
 │   │   ├── Favicons.astro
-│   │   └── Logo.astro
+│   │   └── Brand.astro
 │   ├── content/
 │   │   ├── post/
 │   │   │   ├── post-slug-1.md
